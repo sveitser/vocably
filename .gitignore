@@ -29,3 +29,6 @@ pip-log.txt
 #SublimeText2
 *.sublime-project
 *.sublime-workspace
+
+#Admin
+AWS.md
