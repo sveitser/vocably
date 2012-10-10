@@ -9,9 +9,9 @@
 
 ### Github Workflow
 - Fork [HKCodeCamp](https://github.com/HKCodeCamp/vocably)
-- Develop locally on `feature' branch
-- Push `feature' branch to your forked repo.
-- Submit pull-request from `feature' branch to HKCodeCamp 'master`
+- Develop locally on `feature` branch
+- Push `feature` branch to your forked repo.
+- Submit pull-request from `feature` branch to HKCodeCamp `master`
 - Assign team member to check code and merge it.
 
 ## Team Members
@@ -21,7 +21,7 @@
 - [Leo](https://github.com/Liongrass)
 - [Mathis](https://github.com/sveitser)
 - [Mart](https://github.com/tijptjik)
-- [Vaugn](https://github.com/vhew)(?)
+- [Vaugn](https://github.com/vhew) (?)
 
 ## Features
 Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/issues/)
