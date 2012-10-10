@@ -3,25 +3,25 @@
 ## Project Conventions
 
 ### General
-- **Python**: PEP8
-- **Discussion**: Use Github Issues to discuss features
-- **Documentation**: Markdown format
+- **Python**: [PEP8](http://www.python.org/dev/peps/pep-0008/)
+- **Discussion**: Use [Github Issues](https://github.com/HKCodeCamp/vocably/issues/) to discuss features
+- **Documentation**: [Markdown](http://github.github.com/github-flavored-markdown/) format
 
 ### Github Workflow
 - Fork [HKCodeCamp](https://github.com/HKCodeCamp/vocably)
-- Develop locally on `feature branch`
-- Push `feature branch` to your forked repo.
-- Submit pull-request from `feature branch` to `HKCodeCamp master`
+- Develop locally on `feature' branch
+- Push `feature' branch to your forked repo.
+- Submit pull-request from `feature' branch to HKCodeCamp 'master`
 - Assign team member to check code and merge it.
 
 ## Team Members
-@alex
-@godfried
-@hube
-@liongrass
-@mathis
-@tijptjik
-@vaugn (?)
+- [Alex](https://github.com/AlexandreBeaulne)
+- [Godfried](https://github.com/gljob)
+- [Hubert](https://github.com/hube)
+- [Leo](https://github.com/Liongrass)
+- [Mathis](https://github.com/sveitser)
+- [Mart](https://github.com/tijptjik)
+- [Vaugn](https://github.com/vhew)(?)
 
 ## Features
 Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/issues/)
