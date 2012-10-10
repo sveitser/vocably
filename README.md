@@ -36,6 +36,8 @@ Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/i
 - Jinja2
 - jQuery
 
+## Resources
+Bank of English [Word Frequency List](http://www.titania.bham.ac.uk/frequency%20lists/corpusrank.txt)
 ## API Design
 
 
