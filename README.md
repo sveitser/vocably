@@ -6,7 +6,7 @@
 - **Python**: [PEP8](http://www.python.org/dev/peps/pep-0008/)
 - **Discussion**: Use [Github Issues](https://github.com/HKCodeCamp/vocably/issues/) to discuss features
 - **Documentation**: [Markdown](http://github.github.com/github-flavored-markdown/) format
-- **Chat**: [Hipchat](https://hkcodecamp.hipchat.com/chat): Vocably Room
+- **Chat**: [Hipchat](https://hkcodecamp.hipchat.com/chat): Vocably Room ([XMPP](https://hkcodecamp.hipchat.com/account/xmpp))
 
 ### Github Workflow
 - Fork [HKCodeCamp](https://github.com/HKCodeCamp/vocably)
