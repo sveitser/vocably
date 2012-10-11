@@ -3,6 +3,7 @@
 ## Project Conventions
 
 ### General
+- **Python**: Python [2.7.3](http://docs.python.org/)
 - **Python**: [PEP8](http://www.python.org/dev/peps/pep-0008/)
 - **Discussion**: Use [Github Issues](https://github.com/HKCodeCamp/vocably/issues/) to discuss features
 - **Documentation**: [Markdown](http://github.github.com/github-flavored-markdown/) format
@@ -28,16 +29,15 @@
 Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/issues/)
 
 ## Tech Stack
-- Amazon AWS
-- SQLite
-- Python
-- R
-- Bottle
-- Jinja2
-- jQuery
+- [Amazon AWS](http://aws.amazon.com/documentation/)
+- [SQLite](http://www.sqlite.org/docs.html)
+- [Python](http://docs.python.org/)
+- [R](http://www.r-project.org/other-docs.html)
+- [Bottle](http://bottlepy.org/docs/dev/)
+- [Jinja2](http://jinja.pocoo.org/docs/)
+- [jQuery](http://docs.jquery.com/)
 
 ## Resources
 Bank of English [Word Frequency List](http://www.titania.bham.ac.uk/frequency%20lists/corpusrank.txt)
+
 ## API Design
-
-
