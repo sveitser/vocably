@@ -46,13 +46,16 @@ Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/i
 - [API Docs](http://developer.wordnik.com/docs)
 - [Python Library](http://developer.wordnik.com/libraries#python)
 - [Github](https://github.com/wordnik)
+
 [Wordnet](http://wordnet.princeton.edu/)
 - [API Docs](http://nltk.googlecode.com/svn/trunk/doc/howto/wordnet.html)
 - [Python Library](http://nltk.org/api/nltk.corpus.reader.html#module-nltk.corpus.reader.wordnet)
 - [Github](https://github.com/nltk/nltk)
+
 [Dictionary.com](dictionary.com)
 - [API Docs](http://developer.dictionary.com/products)
 - [Github](https://github.com/dictionarycom)
+
 [Stands4](http://www.abbreviations.com/)
 - [API Docs](http://www.abbreviations.com/definitions_api.php)
 
