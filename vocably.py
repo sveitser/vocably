@@ -4,4 +4,4 @@ from bottle import route, run
 def login():
     return "Show me your e-mail!"
 
-run(host='localhost', port=8080, debug=True, reloader=True)
+run(host='localhost', port=80, debug=True, reloader=True)
