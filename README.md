@@ -17,8 +17,8 @@
 - Assign team member to check code and merge it.
 
 ## Team Members
-- [Alex](https://github.com/AlexandreBeaulne)
-- [Godfried](https://github.com/gljob)
+- [Alexandre](https://github.com/AlexandreBeaulne)
+- [Godfrey](https://github.com/gljob)
 - [Hubert](https://github.com/hube)
 - [Leo](https://github.com/Liongrass)
 - [Mathis](https://github.com/sveitser)
@@ -38,6 +38,22 @@ Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/i
 - [jQuery](http://docs.jquery.com/)
 
 ## Resources
-Bank of English [Word Frequency List](http://www.titania.bham.ac.uk/frequency%20lists/corpusrank.txt)
+### Linguistic Corpora
+- Bank of English [Word Frequency List](http://www.titania.bham.ac.uk/frequency%20lists/corpusrank.txt)
+
+### Dictionary APIs
+[Wordnik](http://www.wordnik.com/)
+- [API Docs](http://developer.wordnik.com/docs)
+- [Python Library](http://developer.wordnik.com/libraries#python)
+- [Github](https://github.com/wordnik)
+[Wordnet](http://wordnet.princeton.edu/)
+- [API Docs](http://nltk.googlecode.com/svn/trunk/doc/howto/wordnet.html)
+- [Python Library](http://nltk.org/api/nltk.corpus.reader.html#module-nltk.corpus.reader.wordnet)
+- [Github](https://github.com/nltk/nltk)
+[Dictionary.com](dictionary.com)
+- [API Docs](http://developer.dictionary.com/products)
+- [Github](https://github.com/dictionarycom)
+[Stands4](http://www.abbreviations.com/)
+- [API Docs](http://www.abbreviations.com/definitions_api.php)
 
 ## API Design
