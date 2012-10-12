@@ -41,6 +41,11 @@ Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/i
 ### Linguistic Corpora
 - Bank of English [Word Frequency List](http://www.titania.bham.ac.uk/frequency%20lists/corpusrank.txt)
 
+### Mobile UI
+- [JQuery Mobile](http://jquerymobile.com/) with [jQTouch](http://www.jqtouch.com/)
+- [Sencha Touch](http://www.sencha.com/products/touch/)
+- [KendoUI](http://www.kendoui.com/web.aspx)
+
 ### Dictionary APIs
 [Wordnik](http://www.wordnik.com/)
 - [API Docs](http://developer.wordnik.com/docs)
