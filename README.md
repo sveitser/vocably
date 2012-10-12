@@ -23,7 +23,7 @@
 - [Leo](https://github.com/Liongrass)
 - [Mathis](https://github.com/sveitser)
 - [Mart](https://github.com/tijptjik)
-- [Vaugn](https://github.com/vhew) (?)
+- [Vaughn](https://github.com/vhew)
 
 ## Features
 Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/issues/)
