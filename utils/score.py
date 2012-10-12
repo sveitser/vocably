@@ -3,10 +3,7 @@
 # Utilities to calculate scores and fetch new words
 #
 
-import re
-
-# global reference wordlist
-reference_wordlist = create_reference_wordlist('../data/corpusrank.txt')
+import re, operator
 
 class Word:
     """
@@ -55,15 +52,17 @@ def unique_words(string):
     """
     return list(set(re.findall("[a-z]+", string.lower())))
 
+# global reference wordlist
+reference_wordlist = create_reference_wordlist('../data/corpusrank.txt')
+
 def get_score(wordlist):
     """
     Score user based on list of unique words in vocabulary
     """
+    percentile = 0.9
     d = reference_wordlist
-    userdict = {word:d[word] for word in d if word in d}
-    sorted_words = 
-
-
-   
-    return score
+    userdict = {word:d[word] for word in wordlist if word in d}
+    sorted_words = sorted(userdict, key=lambda x: userdict.get(x).rank, reverse=True)
+    threshold_word = sorted_words[floor(percentile * len(wordlist)]
+    return sorted_words
 
