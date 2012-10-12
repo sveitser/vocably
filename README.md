@@ -59,4 +59,7 @@ Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/i
 [Stands4](http://www.abbreviations.com/)
 - [API Docs](http://www.abbreviations.com/definitions_api.php)
 
+[DictService](http://services.aonaware.com/DictService/)
+- [API Docs](http://services.aonaware.com/DictService/DictService.asmx)
+
 ## API Design
