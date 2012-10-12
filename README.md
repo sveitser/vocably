@@ -48,7 +48,9 @@ Tracked and discussed as [Github Issues](https://github.com/HKCodeCamp/vocably/i
 - [Github](https://github.com/wordnik)
 
 ### Mobile UI
-[JavaScript Frameworks](http://sixrevisions.com/javascript/mobile%C2%A0web-development-frameworks/)
+[JQuery Mobile](http://jquerymobile.com/) with [jQTouch](http://www.jqtouch.com/)
+[Sencha Touch](http://www.sencha.com/products/touch/)
+[KendoUI](http://www.kendoui.com/web.aspx)
 
 [Wordnet](http://wordnet.princeton.edu/)
 - [API Docs](http://nltk.googlecode.com/svn/trunk/doc/howto/wordnet.html)
