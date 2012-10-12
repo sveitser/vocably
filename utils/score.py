@@ -56,5 +56,14 @@ def unique_words(string):
     return list(set(re.findall("[a-z]+", string.lower())))
 
 def get_score(wordlist):
-    pass
+    """
+    Score user based on list of unique words in vocabulary
+    """
+    d = reference_wordlist
+    userdict = {word:d[word] for word in d if word in d}
+    sorted_words = 
+
+
+   
+    return score
 
