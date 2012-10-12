@@ -8,4 +8,4 @@ def home():
 def login():
     return "Show me your e-mail!"
 
-run(host='localhost', port=8080, debug=True, reloader=True)
+run(host='ec2-54-242-121-195.compute-1.amazonaws.com', port=8080, debug=True, reloader=True)
