@@ -169,10 +169,9 @@ def score_user(email, text):
     """
     wordlist = filter_words(unique_words(text))
     userscore = score(wordlist)
-    print(wordlist)
     database.store_user_words(email, wordlist)
     database.set_score(email, userscore)
-
+    print 'User %s knows %i words' % (email, userscore * words_in_language())
     return userscore
 
 def get_score(email):
