@@ -1,7 +1,6 @@
 from bottle import route, run, debug, template, request, static_file, redirect
-from utils import vocably_oauth as oauth, score, definition
-from utils import database as db
 
+from utils import vocably_oauth as oauth, score, definition, database as db
 
 # Landing Page
 @route('/')
@@ -41,6 +40,7 @@ def login_callback():
     else:
         print "Successfully acquired an authentication token"
         oauth.authorize(request.query.code)
+        database.create_user(oauth.user_email(), 0)
         redirect('/emails')
 
 @route('/emails')
