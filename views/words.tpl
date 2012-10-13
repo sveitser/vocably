@@ -33,6 +33,7 @@
                         </div>
                     %end
                     </div>
+                <h2>{{user_score}} words known</h2>
         </div>
         <script>
             //App custom javascript

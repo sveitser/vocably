@@ -1,5 +1,7 @@
 from bottle import route, run, debug, template, request, static_file, redirect
 from utils import vocably_oauth as oauth, score, definition
+from utils import database as db
+
 
 # Landing Page
 @route('/')
@@ -11,10 +13,13 @@ def home():
 def words():
     # Get words for user
     # word_defs = get_word_defs() 
-    # newwords = score.choose_words(oauth.user_email())
-    newwords = ['grinder','helicopter','fab']
+    user_email = oauth.user_email()
+    newwords = score.choose_words(user_email)
+    # newwords = ['grinder','helicopter','fab']
     word_defs = {w:definition.definition(w) for w in newwords}
-    output = template('words', word_defs=word_defs)
+    user_score = db.get_score(user_email)
+    print 'user score:', user_score
+    output = template('words', word_defs=word_defs, user_score=user_score)
     return output
 
 @route('/login')
