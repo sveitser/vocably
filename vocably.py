@@ -7,7 +7,7 @@ import httplib2
 
 @route('/')
 def home():
-    return template('mobile_website/index.html')
+    return template('media/html/index.html')
 
 @route('/login')
 def login():
@@ -33,4 +33,5 @@ flow = flow_from_clientsecrets('config/client_secrets.json',
                                scope='https://mail.google.com/',
                                redirect_uri='http://localhost:8080/oauth2callback')
 storage = Storage('config/credentials')
+
 run(host='localhost', port=8080, debug=True, reloader=True)
