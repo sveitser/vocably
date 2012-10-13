@@ -30,8 +30,8 @@
                     <div data-role="collapsible-set">
                     %for key in word_defs:
                         <div data-role="collapsible" class="collapsible">
-                            <h3>%key</h3>
-                            <p>%word_defs[key]</p>
+                            <h3>{{key}}</h3>
+                            <p>{{word_defs[key]}}</p>
                     %end
                     </div>
             </div>
