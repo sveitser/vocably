@@ -24,12 +24,13 @@
                 <div style="width: 100%; height: 173px; position: relative; text-align: center;">
                     <img src="/img/monkey.png" alt="image" />
                 </div>
-                <div style="float:right">
-                    <a href="/login">Login</a>
-                </div>
                 <h1>
                     Vocably
                 </h1>
+                <div style="float:center">
+                    <a type="button" href="/login">Submit</a>
+                </div>
+
                 <form action="/login">
                     <div id="checkboxes3" data-role="fieldcontain">
                         <p>Vocably will access your Google Mail account. We do not save any of your information.</p>

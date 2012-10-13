@@ -1,4 +1,4 @@
-from bottle import route, run, debug, template, request, static_file
+from bottle import route, run, debug, template, request, static_file, redirect
 
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
@@ -12,6 +12,11 @@ def home():
     return output
 
 # OAuth
+@route('/login')
+def login():
+    print "Logging in a user: redirecting to Google"
+    redirect(flow.step1_get_authorize_url())
+
 @route('/oauth2callback')
 def login_callback():
     print "Login callback from Google"
@@ -29,7 +34,7 @@ def login_callback():
 
 flow = flow_from_clientsecrets('config/client_secrets.json',
                                scope='https://mail.google.com/',
-                               redirect_uri='http://localhost:8080/oauth2callback')
+                               redirect_uri='http://hype.hk/oauth2callback')
 storage = Storage('config/credentials')
 
 # Static Files
