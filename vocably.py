@@ -7,6 +7,11 @@ def home():
     output = template('home')
     return output
 
+@route('/words')
+def words():
+    output = template('words')
+    return output
+
 @route('/login')
 def login():
     print "Logging in a user: redirecting to Google"
