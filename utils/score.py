@@ -14,7 +14,7 @@ reference_wordlist = dict()
 sorted_reference_wordlist = []
 
 def percentile():
-    return 0.8
+    return 0.9
 def words_in_language():
     return len(reference_wordlist)
 def wordlist_filename():
@@ -153,6 +153,7 @@ def choose_words(email, nwords_to_send = 10):
     def add_word():
         target = int(percentile() * userscore * len(unknown_words))
         candidate = int(target * (1 + random.random() * (1 - percentile())))
+        candidate = min(candidate, len(unknown_words) - 1)
         return unknown_words.pop(candidate)
 
     wordlist = [add_word() for i in range(nwords_to_send)]
