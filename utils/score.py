@@ -3,7 +3,8 @@
 # Utilities to calculate scores and fetch new words
 #
 
-import re, operator, random
+import re, random
+import database
 
 # global reference dictionary
 reference_wordlist = dict()
@@ -11,7 +12,7 @@ reference_wordlist = dict()
 # global sorted wordlist
 sorted_reference_wordlist = []
 
-def percentile(): return 0.67
+def percentile(): return 0.8
 def words_in_language(): return len(reference_wordlist)
 def wordlist_filename(): return "../data/corpusrank.txt"
 
@@ -105,21 +106,49 @@ def test_on_textfile(fname):
     wl = filter_words( unique_words( open(fname, 'r').read()))
     return score(wl) * words_in_language()
 
-def choose_words(userid):
-    def get_word(target_word):
-        r = rand * 0.1
+
+# some testing functions
+#def get_list(a):
+#    return unique_words( open("../data/m.txt", 'r').read() )
+#
+#def get_score(a):
+#    return test_on_textfile("../data/m.txt")
+
+
+def choose_words(userid, nwords_to_send = 10):
+    """
+    Choose words for user to learn. 
+    """
     # query database for known words of user
-    userwords = get_list(userid)
+    userwords = database.get_list(userid)
 
     # query database for user score
-    userscore = get_score(userid)
+    userscore = database.get_score(userid)
 
-    target = int(percentile() * userscore * words_in_language())
-    target_word = userwords[target]
-    nwords_to_send = 10
+    target = int(percentile() * userscore)
     
-
+    # add a word not yet known to user to wordlist (ugly solution)
+    def add_word(target,wordlist):
+        tries = 0
+        while tries < 1000:
+            candidate = int(target * (1.0 + random.random() \
+                * (1 - percentile())))
+            tries += 1
+            if candidate > words_in_language() + 1: 
+                continue
+            word = sorted_reference_wordlist[candidate] 
+            if word not in wordlist:         
+                return wordlist + [word]
         
+        # can't find suitable words, giving up
+        return None
+
+    wordlist = []
+    
+    for i in range(nwords_to_send):
+        wordlist = add_word(target,wordlist)
+    
+    return wordlist
 
 
 def initialize_module():
