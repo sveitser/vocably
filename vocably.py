@@ -34,4 +34,4 @@ flow = flow_from_clientsecrets('config/client_secrets.json',
                                redirect_uri='http://localhost:8080/oauth2callback')
 storage = Storage('config/credentials')
 
-run(host='localhost', port=8080, debug=True, reloader=True)
+run(host='0.0.0.0', port=8080, debug=True, reloader=True)
