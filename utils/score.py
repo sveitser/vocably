@@ -92,5 +92,6 @@ def test_on_textfile(fname):
     Loads text file and estimates number of words in vocabulary.
     """
     wl = filter_words( unique_words( open(fname, 'r').read()))
-    return score_wordlist_percentile(wl) * len(reference_wordlist)
-    
+    return score(wl) * len(reference_wordlist)
+
+def choose_words(
