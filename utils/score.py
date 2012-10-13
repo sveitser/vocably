@@ -49,10 +49,17 @@ def create_reference_wordlist(fname):
 # global reference wordlist
 reference_wordlist = create_reference_wordlist('../data/corpusrank.txt')
 
+def remove_quotes(string):
+    """
+    Remove all quotes from string
+    """
+    return re.sub(r'.*>.*', '', string)
+
 def unique_words(string):
     """
     Returns list of unique (case insensitive) strings from a string.
     """
+    string = remove_quotes(string)
     return list(set(re.findall("[a-z]+", string.lower())))
 
 def filter_words(wordlist):
