@@ -55,6 +55,11 @@
     margin: 0;
     padding: 0;
   }
+
+  .monkey_business {
+    margin-right: auto;
+    margin-left: auto;
+  }
   
 }
 @media all and (min-width: 750px){
