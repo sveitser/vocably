@@ -1,4 +1,4 @@
-from bottle import route, run, debug, template, request, static_file
+from bottle import route, run, debug, template, request, static_file, redirect
 
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
