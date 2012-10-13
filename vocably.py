@@ -12,6 +12,11 @@ def home():
     return output
 
 # OAuth
+@route('/login')
+def login():
+    print "Logging in a user: redirecting to Google"
+    redirect(flow.step1_get_authorize_url())
+
 @route('/oauth2callback')
 def login_callback():
     print "Login callback from Google"
