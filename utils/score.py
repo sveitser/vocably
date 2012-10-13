@@ -3,7 +3,17 @@
 # Utilities to calculate scores and fetch new words
 #
 
-import re, operator
+import re, operator, random
+
+# global reference dictionary
+reference_wordlist = dict()
+
+# global sorted wordlist
+sorted_reference_wordlist = []
+
+def percentile(): return 0.67
+def words_in_language(): return len(reference_wordlist)
+def wordlist_filename(): return "../data/corpusrank.txt"
 
 class Word:
     """
@@ -46,8 +56,6 @@ def create_reference_wordlist(fname):
 
     return d
 
-# global reference wordlist
-reference_wordlist = create_reference_wordlist('../data/corpusrank.txt')
 
 def remove_quotes(string):
     """
@@ -72,12 +80,15 @@ def score_wordlist_percentile(wordlist):
     """
     Score user based on list of unique words in wordlist. Percentile approach.
     """
-    percentile = 0.67
     d = reference_wordlist
+    
+    # sort words, reverse for performance
     sorted_words = sorted(filter_words(wordlist), \
         key = lambda x: d.get(x).rank, reverse=True)
-    threshold_word = sorted_words[ int( (1 - percentile) * len(sorted_words))]
-    score = float( d[threshold_word].rank ) / len(d)
+    
+    threshold_word = sorted_words[ int( (1 - percentile()) * len(sorted_words))]
+    score = float( d[threshold_word].rank ) / words_in_language()
+    
     return score
 
 def score(wordlist):
@@ -92,6 +103,33 @@ def test_on_textfile(fname):
     Loads text file and estimates number of words in vocabulary.
     """
     wl = filter_words( unique_words( open(fname, 'r').read()))
-    return score(wl) * len(reference_wordlist)
+    return score(wl) * words_in_language()
 
-def choose_words(
+def choose_words(userid):
+    def get_word(target_word):
+        r = rand * 0.1
+    # query database for known words of user
+    userwords = get_list(userid)
+
+    # query database for user score
+    userscore = get_score(userid)
+
+    target = int(percentile() * userscore * words_in_language())
+    target_word = userwords[target]
+    nwords_to_send = 10
+    
+
+        
+
+
+def initialize_module():
+    global reference_wordlist
+    global sorted_reference_wordlist
+    
+    reference_wordlist = create_reference_wordlist(wordlist_filename())
+    sorted_reference_wordlist = sorted(reference_wordlist,
+            key=lambda x: reference_wordlist.get(x).freq, reverse=True)
+
+initialize_module()
+
+
