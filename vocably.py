@@ -9,7 +9,9 @@ def home():
 
 @route('/words')
 def words():
-    output = template('words')
+    # Get words for user
+    # word_defs = get_word_defs() 
+    output = template('words', word_defs=word_defs)
     return output
 
 @route('/login')
