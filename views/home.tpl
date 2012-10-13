@@ -27,9 +27,9 @@
                 <h1>
                     Vocably
                 </h1>
-                <p>Vocably scores your vocabulary knowledge based on your Gmail correspondance. Only a list of vocabulary is saved. Ever.</p>
+                <p>Vocably scores your vocabulary knowledge based on your Gmail correspondence. Only a list of vocabulary is saved. Ever.</p>
                 <div style="float:center">
-                    <a type="button" target="_blank" href="/login">Submit</a>
+                    <a type="button" target="_blank" href="/login">Login</a>
                 </div>
             </div>
         </div>
