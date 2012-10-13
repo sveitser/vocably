@@ -1,19 +1,17 @@
-from bottle import route, run, template, redirect, request
+from bottle import route, run, debug, template, request, static_file
 
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
 
 import httplib2
 
+# Landing Page    
 @route('/')
 def home():
-    return template('media/html/index.html')
+    output = template('home')
+    return output
 
-@route('/login')
-def login():
-    print "Logging in a user: redirecting to Google"
-    redirect(flow.step1_get_authorize_url())
-
+# OAuth
 @route('/oauth2callback')
 def login_callback():
     print "Login callback from Google"
@@ -33,5 +31,20 @@ flow = flow_from_clientsecrets('config/client_secrets.json',
                                scope='https://mail.google.com/',
                                redirect_uri='http://localhost:8080/oauth2callback')
 storage = Storage('config/credentials')
+
+# Static Files
+@route('/css/:path#.+#', name='css')
+def css(path):
+    return static_file(path, root='css')
+
+@route('/img/:path#.+#', name='img')
+def img(path):
+    return static_file(path, root='img')
+
+@route('/js/:path#.+#', name='js')
+def js(path):
+    return static_file(path, root='js')
+
+    
 
 run(host='0.0.0.0', port=8080, debug=True, reloader=True)
