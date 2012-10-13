@@ -1,0 +1,8 @@
+# Not a requirement, but very useful
+ipython
+
+# Web framework
+bottle
+
+# APIs
+google-api-python-client
