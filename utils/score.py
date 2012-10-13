@@ -3,8 +3,8 @@
 # Utilities to calculate scores and fetch new words
 #
 
-import re, random
-import database
+import re, random, enchant
+#import database
 
 # global reference dictionary
 reference_wordlist = dict()
@@ -26,12 +26,10 @@ class Word:
 
 def create_reference_wordlist(fname):
     """
-    d = create_dict(fname) create dictionary: d[word] = Word
-
     creates dict based on table of word occurences and normalizes it 
     
-    rank: Word.rank
-    frequency: Word.frequency
+    keys are word strings
+    values are Word class with members Word.rank Word.frequency
 
     fname is of the form:
     rank1 occurences1 word1
@@ -44,12 +42,18 @@ def create_reference_wordlist(fname):
         for i in d:
             d[i].freq /= count
 
-    d=dict()
+    d = dict()
+    en_dict = enchant.Dict("en_GB")
+
     f = open(fname,'r')
     for line in f.readlines():
         data = line.split()
         try:
-            d[data[2]] = Word(int(data[0]),float(data[1]));
+            word = data[2]
+            # add word if in dictionary
+            if en_dict.check(word):
+                d[word] = Word(int(data[0]),float(data[1]))
+
         except:
             continue
 
@@ -140,8 +144,8 @@ def choose_words(userid, nwords_to_send = 10):
             if word not in wordlist:         
                 return wordlist + [word]
         
-        # can't find suitable words, giving up
-        return None
+        # can't find unknown words, returning whatever I have
+        return wordlist + [word]
 
     wordlist = []
     
