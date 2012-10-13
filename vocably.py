@@ -16,9 +16,8 @@ def words():
     newwords = score.choose_words(user_email)
     # newwords = ['grinder','helicopter','fab']
     word_defs = {w:definition.definition(w) for w in newwords}
-    user_score = db.get_score(user_email)
-    print 'user score:', user_score
-    output = template('words', word_defs=word_defs, user_score=user_score)
+    user_score = score.get_score(user_email)
+    output = template('words', word_defs=word_defs)
     return output
 
 @route('/login')
