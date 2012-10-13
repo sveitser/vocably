@@ -14,7 +14,7 @@ sorted_reference_wordlist = []
 
 def percentile(): return 0.8
 def words_in_language(): return len(reference_wordlist)
-def wordlist_filename(): return "../data/corpusrank.txt"
+def wordlist_filename(): return "data/corpusrank.txt"
 
 class Word:
     """
