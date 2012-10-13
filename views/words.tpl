@@ -21,12 +21,10 @@
         <!-- Home -->
         <div data-role="page" id="page1">
             <div data-role="content">
-                <div style="width: 40px; height: 35px; position: relative;">
+                <div style="width: 40px; height: 35px; text-align: center; position: relative;">
                     <img src="/img/monkey_sm.png" alt="image" />
                 </div>
-                <h2>
-                    Your list of words
-                </h2>
+                <h2>Words of the day</h2>
                     <div data-role="collapsible-set">
                     %for key in word_defs:
                         <div data-role="collapsible" class="collapsible">
