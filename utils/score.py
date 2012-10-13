@@ -4,7 +4,7 @@
 #
 
 import re, random, enchant
-#import database
+import database
 
 # global reference dictionary
 reference_wordlist = dict()
