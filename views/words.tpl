@@ -27,20 +27,13 @@
                 <h2>
                     Your list of words
                 </h2>
-                <div data-role="collapsible-set">
-                    <div data-role="collapsible" class="collapsible">
-                        <h3>
-                            Word 1
-                        </h3>
-                        <p>Definition</p>
+                    <div data-role="collapsible-set">
+                    %for key in word_defs:
+                        <div data-role="collapsible" class="collapsible">
+                            <h3>%key</h3>
+                            <p>%word_defs[key]</p>
+                    %end
                     </div>
-                    <div data-role="collapsible">
-                        <h3>
-                            Word 2
-                        </h3>
-                        <p>Definition</p>
-                    </div>
-                </div>
             </div>
         </div>
         <script>
