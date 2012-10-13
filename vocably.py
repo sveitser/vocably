@@ -1,6 +1,6 @@
 from bottle import route, run, debug, template, request, static_file, redirect
 
-from utils import vocably_oauth as oauth, score, definition, database as db
+from utils import vocably_oauth as oauth, score, definition, database
 
 # Landing Page
 @route('/')
