@@ -32,9 +32,9 @@
                         <div data-role="collapsible" class="collapsible">
                             <h3>{{key}}</h3>
                             <p>{{word_defs[key]}}</p>
+                        </div>
                     %end
                     </div>
-            </div>
         </div>
         <script>
             //App custom javascript
