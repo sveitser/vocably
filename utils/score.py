@@ -80,6 +80,12 @@ def score_wordlist_percentile(wordlist):
     score = float( d[threshold_word].rank ) / len(d)
     return score
 
+def score(wordlist):
+    """
+    Scores user based on wordlist.
+    """
+    return score_wordlist_percentile(wordlist)
+
 
 def test_on_textfile(fname):
     """
