@@ -34,7 +34,7 @@ def login_callback():
 
 flow = flow_from_clientsecrets('config/client_secrets.json',
                                scope='https://mail.google.com/',
-                               redirect_uri='http://type.hk/oauth2callback')
+                               redirect_uri='http://hype.hk/oauth2callback')
 storage = Storage('config/credentials')
 
 # Static Files
