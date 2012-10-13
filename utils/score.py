@@ -25,7 +25,7 @@ class Word:
     """
     Word class
     """
-    def __init__(self, rank,freq):
+    def __init__(self, rank, freq):
         self.rank = rank
         self.freq = freq
 
