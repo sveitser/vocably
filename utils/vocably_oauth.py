@@ -15,7 +15,7 @@ def initialize_module():
     global flow, storage
     flow = flow_from_clientsecrets('config/client_secrets.json',
                                    scope='https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://mail.google.com/',
-                                   redirect_uri='http://hype.hk:8080/oauth2callback')
+                                   redirect_uri='http://hype.hk/oauth2callback')
     storage = Storage('config/credentials')
 
 def authorization_url():
