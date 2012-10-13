@@ -6,3 +6,6 @@ bottle
 
 # APIs
 google-api-python-client
+
+# Dictionary
+pyenchant
