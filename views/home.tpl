@@ -27,7 +27,7 @@
                 <h1>
                     Vocably
                 </h1>
-                <p>Vocably will access your Google Mail account. We do not save any of your information.</p>
+                <p>Vocably scores your vocabulary knowledge based on your Gmail correspondance. Only a list of vocabulary is saved. Ever.</p>
                 <div style="float:center">
                     <a type="button" target="_blank" href="/login">Submit</a>
                 </div>
