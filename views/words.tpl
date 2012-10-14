@@ -6,7 +6,7 @@
         <title>
         </title>
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-        <link rel="stylesheet" href="my.css" />
+        <link rel="stylesheet" href="/css/style.css" />
         <style>
             /* App custom styles */
         </style>
@@ -14,34 +14,25 @@
         </script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
         </script>
-        <script src="my.js">
+        <script src="/js/main.js">
         </script>
     </head>
     <body>
         <!-- Home -->
         <div data-role="page" id="page1">
             <div data-role="content">
-                <div style="width: 40px; height: 35px; position: relative;">
-                    <img src="images/monkey_sm.png" alt="image" />
+                <div style="width: 40px; height: 35px; text-align: center; position: relative;">
+                    <img src="/img/monkey_sm.png" alt="image" />
                 </div>
-                <h2>
-                    Your list of words
-                </h2>
-                <div data-role="collapsible-set">
-                    <div data-role="collapsible" class="collapsible">
-                        <h3>
-                            Word 1
-                        </h3>
-                        <p>Definition</p>
+                <h2>Words of the day</h2>
+                    <div data-role="collapsible-set">
+                    %for key in word_defs:
+                        <div data-role="collapsible" class="collapsible">
+                            <h3>{{key}}</h3>
+                            <p>{{word_defs[key]}}</p>
+                        </div>
+                    %end
                     </div>
-                    <div data-role="collapsible">
-                        <h3>
-                            Word 2
-                        </h3>
-                        <p>Definition</p>
-                    </div>
-                </div>
-            </div>
         </div>
         <script>
             //App custom javascript

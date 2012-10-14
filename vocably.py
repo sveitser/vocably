@@ -1,21 +1,31 @@
 from bottle import route, run, debug, template, request, static_file, redirect
 
-from oauth2client.client import flow_from_clientsecrets
-from oauth2client.file import Storage
+from utils import vocably_oauth as oauth, score, definition, database
 
-import httplib2
-
-# Landing Page    
+# Landing Page
 @route('/')
 def home():
     output = template('home')
     return output
 
-# OAuth
+@route('/words')
+def words():
+    # Get words for user
+    # word_defs = get_word_defs() 
+    user_email = oauth.user_email()
+    newwords = score.choose_words(user_email)
+    word_defs = {w:definition.definition(w) for w in newwords}
+    output = template('words', word_defs=word_defs)
+    return output
+
 @route('/login')
 def login():
     print "Logging in a user: redirecting to Google"
-    redirect(flow.step1_get_authorize_url())
+    redirect(oauth.authorization_url())
+
+@route('/logout')
+def logout():
+    oauth.deauthorize()
 
 @route('/oauth2callback')
 def login_callback():
@@ -26,16 +36,16 @@ def login_callback():
         redirect('/')
     else:
         print "Successfully acquired an authentication token"
-        credentials = flow.step2_exchange(request.query.code)
-        storage.put(credentials)
-        print "Stored credentials"
-        redirect('/')
-        # http = credentials.authorize(httplib2.Http())
+        oauth.authorize(request.query.code)
+        database.create_user(oauth.user_email(), 0)
+        redirect('/emails')
 
-flow = flow_from_clientsecrets('config/client_secrets.json',
-                               scope='https://mail.google.com/',
-                               redirect_uri='http://hype.hk/oauth2callback')
-storage = Storage('config/credentials')
+@route('/emails')
+def fetch_mail():
+    email_text = oauth.fetch_mail()
+    print "Got a bunch of email text"
+    score.score_user(oauth.user_email(), email_text)
+    redirect('/words')
 
 # Static Files
 @route('/css/:path#.+#', name='css')
@@ -49,7 +59,5 @@ def img(path):
 @route('/js/:path#.+#', name='js')
 def js(path):
     return static_file(path, root='js')
-
-    
 
 run(host='0.0.0.0', port=8080, debug=True, reloader=True)
