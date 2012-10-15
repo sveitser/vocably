@@ -42,7 +42,7 @@ def fetch_mail():
     auth_str = "user=%s\1auth=Bearer %s\1\1" % (user_email(), credentials.access_token)
     imap_conn = imaplib.IMAP4_SSL('imap.gmail.com')
     imap_conn.authenticate('XOAUTH2', lambda x: auth_str)
-    imap_conn.select('Sent') #"[Gmail]/Sent Mail"
+    imap_conn.select('[Gmail]/Sent Mail')
 
     # Pull email bodies
     resp, data = imap_conn.search(None, 'ALL')
