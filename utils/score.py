@@ -16,7 +16,7 @@ def percentile():
 def words_in_language():
     return len(reference_wordlist)
 def wordlist_filename():
-    return "data/corpusrank.txt"
+    return "data/en_filtered.txt"
 def wordlist_dumpfilename():
     return "data/reference_wordlist.dump"
 
