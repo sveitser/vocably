@@ -6,17 +6,18 @@
 """
 from nltk.corpus import wordnet
 import enchant, re
+en_check = enchant.Dict("en_GB").check
 
 
 def filters():
     """
     If any of these functions returns true, the word "is" English.
     """
-    return [enchant.Dict("en_GB").check, wordnet.synsets]
+    return [en_check, wordnet.synsets]
 
 
 def is_english(word):
-    return any([f(word) for f in filters()]) and word.isalpha()
+    return word.isalpha() and any([f(word) for f in filters()]) 
 
 def create_wordlist_csv(fname):
     """
@@ -41,5 +42,31 @@ def create_wordlist_csv(fname):
         d[word] /= total
 
     return d
+
+def load_wordlist(fname):
+    with open(fname, 'r') as f:
+        return [line.split() for line in f.readlines()]
+
+def save_wordlist(fname,l):
+    with open(fname, 'w') as f:
+        for word, freq in l:
+            f.write(word + ' ' + str(freq) + '\n')
+
+def filter_wordlist(l):
+    k = []
+    for word, freq in l:
+        if is_english(word):
+            k.append([word, freq])
+    return k
+#    return [[word,freq] for word, freq in l if is_english(word)]
+
+
+if __name__ == "__main__":
+    l = load_wordlist('data/en.txt')
+    print "loaded"
+    l = filter_wordlist(l)
+    print "filtered"
+    save_wordlist('data/en_filtered.txt', l)
+
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
