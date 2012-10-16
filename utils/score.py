@@ -3,7 +3,7 @@
 #
 
 import re, random, enchant, cPickle as pickle
-import database
+import database, words
 
 # global reference dictionary
 reference_wordlist = dict()
@@ -207,7 +207,7 @@ def initialize_module():
     global reference_wordlist
     global sorted_reference_wordlist
     
-    reference_wordlist = setup_reference_wordlist()
+    reference_wordlist = words.create_wordlist_csv(wordlist_filename())
     sorted_reference_wordlist = sorted(reference_wordlist,
             key=lambda x: reference_wordlist.get(x).freq, reverse=True)
 

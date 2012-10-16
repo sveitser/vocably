@@ -8,6 +8,18 @@ from nltk.corpus import wordnet
 import enchant, re
 en_check = enchant.Dict("en_GB").check
 
+#### todo #####
+##
+##  use words class in dict
+##
+
+class Word:
+    """
+    Word class
+    """
+    def __init__(self, rank, freq):
+        self.rank = rank
+        self.freq = freq
 
 def filters():
     """
