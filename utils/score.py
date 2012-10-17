@@ -74,8 +74,8 @@ def choose_words(email, nwords_to_send = 10):
     """
     Choose nwords_to_send words for user to learn. If less words are available
     only the available words will be sent.
-    Words chosen will be assumed to be learned by user and are added to the
-    user vocabulary in the db. User score in db is updated.
+    Words chosen are assumed to be learned by user and are added to the
+    user vocabulary in db. User score in db is updated.
     """
     # query database for known words of user
     userwords = database.get_list(email)
