@@ -2,95 +2,16 @@
 # Utilities to calculate scores and fetch new words
 #
 
-import re, random, enchant, cPickle as pickle
-import database
+import re, random, enchant 
+import words, database
 
 # global reference dictionary
-reference_wordlist = dict()
-
-# global sorted wordlist
-sorted_reference_wordlist = []
+reference_wordlist = words.setup_reference_wordlist()
 
 def percentile():
     return 0.8
 def words_in_language():
     return len(reference_wordlist)
-def wordlist_filename():
-    return "data/en_filtered.txt"
-def wordlist_dumpfilename():
-    return "data/reference_wordlist.dump"
-
-
-class Word:
-    """
-    Word class
-    """
-    def __init__(self, rank, freq):
-        self.rank = rank
-        self.freq = freq
-
-def setup_reference_wordlist():
-    """
-    Load reference wordlist from dump if available, create it from textfile
-    otherwise.
-    """
-    try:
-        d = pickle.load(open(wordlist_dumpfilename(), 'rb'))
-        print "Loaded previously generated reference wordlist."
-        return d
-    except:
-        print "Couldn't load reference wordlist."
-
-    print "Creating reference wordlist from textfile. May take a while."
-    d = create_reference_wordlist(wordlist_filename())
-    print "Dumping reference wordlist to file."
-    pickle.dump(d, open(wordlist_dumpfilename(), 'wb'), protocol=2)
-
-    return d
-
-def create_reference_wordlist(fname):
-    """
-    creates dict based on table of word occurences and normalizes it
-
-    keys are word strings
-    values are Word class with members Word.rank Word.frequency
-
-    fname is of the form:
-    rank1 occurences1 word1
-    rank2 occurences2 word2
-    """
-    def normalize():
-        count = 0
-        for i in d:
-            count += d[i].freq
-        for i in d:
-            d[i].freq /= count
-
-
-    d = dict()
-    en_dict = enchant.Dict("en_GB")
-
-    try:
-        f = open(fname, 'r')
-    except:
-        print "Can't find wordlist file to create dictionary."
-        return None
-
-    for line in f.readlines():
-        data = line.split()
-        try:
-            word = data[2]
-            # add word if in dictionary
-            if en_dict.check(word) and word.isalpha():
-                d[word] = Word(int(data[0]), float(data[1]))
-
-        except:
-            continue
-
-    normalize()
-
-    return d
-
 
 def remove_quotes(string):
     """
@@ -203,14 +124,22 @@ def score_user(email, text):
 def get_score(email):
     return int(database.get_score(email) * words_in_language() )
 
-def initialize_module():
-    global reference_wordlist
-    global sorted_reference_wordlist
+if __name__ == "__main__":
+    database.setup_db()
+    text = """
+
+           i don't speak english and this is a lot of junk
+           e2tearkt[ rtt here warrs,t 1202f0Vsmi23;0arstm 
+           blah blah >> go away
+           hello mercury venus earth mars jupiter saturn uranus netpune
+           """
+    print "using input:", text
+    print "removing quotes..."
+    print remove_quotes(text)
+    print "unique words:"
+    print unique_words(text)
+    print "scoring test user"
+    print "score %f" % score_user("test@user.com",text)
     
-    reference_wordlist = setup_reference_wordlist()
-    sorted_reference_wordlist = sorted(reference_wordlist,
-            key=lambda x: reference_wordlist.get(x).freq, reverse=True)
 
-initialize_module()
-
-
+# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
